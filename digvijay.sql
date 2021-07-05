@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user` (
-  `sno` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`sno`, `username`, `password`, `email`, `name`, `contact`, `address`, `dt`, `token`, `status`) VALUES
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `name`, `contact`, `address`, `dt`, `token`, `status`) VALUES
 (69, 'asif', 'ce0b996aa0b7d64169a4b8ffeaf878c5', 'abidsaleem04@gmail.com', 'asif', 8382841776, '323/412 South Murain Tola', '2021-06-26 20:32:22', '5ae779c94da8fda7c41da79ea69a5f', 'active'),
 (70, 'harshit', '83a75f0b31435193bafd3b9c5fd45aec', 'harshit@gmail.com', 'harshit', 8382841776, 'amroha', '2021-06-26 20:38:37', '6a720198d77b6cbd49a56efa35b6ce', 'active'),
 (71, 'akash', '94754d0abb89e4cf0a7f1c494dbb9d2c', 'akash@gmail.com', 'akash kumar', 7985628523, 'NOIDA', '2021-06-26 20:49:21', 'c0f1704b95e491821a72552e3e5474', 'active'),
@@ -60,7 +60,7 @@ INSERT INTO `user` (`sno`, `username`, `password`, `email`, `name`, `contact`, `
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`sno`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`username`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email_2` (`email`),
@@ -74,7 +74,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
