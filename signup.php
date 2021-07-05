@@ -96,7 +96,7 @@
                                 $to_email = "$email";
                                 $subject = "Account Created $username";
                                 $body = "Congratulation $name, Your account has been created
-                                        http://localhost/demo//login/mail_authentication.php?token=$token";
+                                        http://localhost/digvijay/mail_authentication.php?token=$token";
                                 $headers = "From: digvijay.kumar@gingerwebs.co.in";
                                 #echo $sql;                                    
                                 if (mail($to_email, $subject, $body, $headers)) {

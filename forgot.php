@@ -35,7 +35,7 @@
                     $to_email = "$email";
                     $subject = "Forgot password $name";
                     $body = "To change your pass click or below link
-                            http://localhost/demo//login/reset_password.php?token=$token";
+                            http://localhost/digvijay/reset_password.php?token=$token";
                     $headers = "From: digvijay.kumar@gingerwebs.co.in";
                     
                     if (mail($to_email, $subject, $body, $headers)) {

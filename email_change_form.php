@@ -51,7 +51,7 @@
                             $to_email = "$email";
                             $subject = "Change Email $name";
                             $body = "To change your email click or below link
-                            http://localhost/demo//login/email_change.php?token=$token&email=$email";
+                            http://localhost/digvijay/email_change.php?token=$token&email=$email";
                             $headers = "From: digvijay.kumar@gingerwebs.co.in";
                             
                             if (mail($to_email, $subject, $body, $headers)) {
