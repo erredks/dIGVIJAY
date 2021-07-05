@@ -33,7 +33,7 @@
             $name =safe($con, $_POST['name']);
             $contact =safe($con, $_POST['contact']);
             $address =safe($con, $_POST['address']);
-            $email = safe($con, $_POST['email']);
+            #$email = safe($con, $_POST['email']);
              
 
             #logic to change other detail
