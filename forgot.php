@@ -32,7 +32,7 @@
                 else{
                     $name = $row['name'];
                     $token = $row['token'];
-                    $to_email = "digvijayk723@gmail.com";
+                    $to_email = "$email";
                     $subject = "Forgot password $name";
                     $body = "To change your pass click or below link
                             http://localhost/demo//login/reset_password.php?token=$token";

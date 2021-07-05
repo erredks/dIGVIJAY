@@ -48,7 +48,7 @@
                         $token = $row['token'];
                         if($num>0){
 
-                            $to_email = "digvijayk723@gmail.com";
+                            $to_email = "$email";
                             $subject = "Change Email $name";
                             $body = "To change your email click or below link
                             http://localhost/demo//login/email_change.php?token=$token&email=$email";

@@ -93,7 +93,7 @@
                                 #echo $sql;
                                 $sql = "INSERT INTO `user` (`username`, `password`, `email`, `name`, `contact`, `address`, `dt`, `token`, `status`) VALUES ('$username', '$encrypted', '$email', '$name', '$contact', '$address', current_timestamp(), '$token', 'inactive') ";
                                 $result = mysqli_query($conn, $sql);
-                                $to_email = "digvijayk723@gmail.com";
+                                $to_email = "$email";
                                 $subject = "Account Created $username";
                                 $body = "Congratulation $name, Your account has been created
                                         http://localhost/demo//login/mail_authentication.php?token=$token";

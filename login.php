@@ -1,6 +1,60 @@
 <?php
     session_start();
-?>
+
+     
+    if($_SERVER["REQUEST_METHOD"] == "POST"){    
+        include 'control.php' ;  
+        
+        $username = $_POST['username'];  
+        $password = $_POST['password'];  
+        
+            //to prevent from mysqli injection  
+            
+            function safe($con,$data){  
+                $username = stripcslashes($data);  
+                $username = mysqli_real_escape_string($con, $data);  
+                return $data;  
+            }
+            
+            $username = safe($con, $username); 
+            $password = safe($con, $password);
+            
+
+
+
+            // encrypting password
+            $checkpassword = md5($password);
+            $sql = "select * from user where username = '$username' and password = '$checkpassword' ";  
+            $result = mysqli_query($con, $sql);  
+            $num = mysqli_num_rows($result);  
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+            
+            if($num == 1){
+                $sql = "select * from user where username = '$username' and `status` = 'active' ";  
+                $result1 = mysqli_query($con, $sql);  
+                $row1 = mysqli_fetch_array($result1, MYSQLI_ASSOC);  
+                $num1 = mysqli_num_rows($result1);
+                if($num1 == 1){  
+                    #echo "<h1><center>Hello ". $row['username'] ." <br> Login successful </center></h1>";
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['username'] = $username;
+                    #$_SESSION['name'] = $row['name'];
+                    header("location: dashboard.php",);
+                }
+                else{
+                    echo "your Email account is not varified... please varify your account First";
+                }  
+            }  
+            else{  
+                echo "<h1> Login failed. Invalid username or password.</h1>";  
+                
+            }
+        
+    }
+
+?> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +116,7 @@
             }
     ?>
 
-    <form name="f1" action = "logincontrol.php" onsubmit = "return validation()" method = "POST">
+    <form name="f1" action = "login.php" onsubmit = "return validation()" method = "POST">
         <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
             <br>
